@@ -1,1 +1,1 @@
-export { default } from "@/components/latihan-flex/index";
+export { default } from "@/components/pertemuan-5/latihan-2";
