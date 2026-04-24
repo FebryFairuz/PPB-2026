@@ -1,37 +1,29 @@
 import { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { CartSummary, ProductCard } from "./components/cart-ui";
+import { ProductCard } from "./components/cart-ui";
 import { SearchBar } from "./components/form";
 import productsData from "./const/list-products.json";
 import { styles } from "./style-app";
 
 export default function Latihan3() {
   const [products, setProducts] = useState(productsData);
-  const [cart, setCart] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const cartSummary = useMemo(() => {
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const totalPrice = cart.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0,
-    );
+  const addToCart = (product) => {
+    alert(`Add product to cart: ${product.name} (${product.price})`);
+  };
 
-    return { totalItems, totalPrice };
-  }, [cart]);
-
-  const addToCart = (product) => {};
-
-  const removeFromCart = (productId) => {};
+  const removeFromCart = (productId) => {
+    alert(`Remove product from cart: ${product.name} (${product.price})`);
+  };
 
   const handleCheckout = () => {
     alert(`Checkout successful!`);
   };
 
   const getCartQuantity = (productId) => {
-    const cartItem = cart.find((item) => item.id === productId);
-    return cartItem ? cartItem.quantity : 0;
+    return 0;
   };
 
   return (
@@ -46,7 +38,6 @@ export default function Latihan3() {
 
         <View style={styles.productsSection}>
           <Text style={styles.sectionTitle}>Products ({products.length})</Text>
-
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -57,17 +48,7 @@ export default function Latihan3() {
             />
           ))}
         </View>
-
-        {cart.length > 0 && <View style={styles.cartSpacer} />}
       </ScrollView>
-
-      {cart.length > 0 && (
-        <CartSummary
-          totalItems={cartSummary.totalItems}
-          totalPrice={cartSummary.totalPrice}
-          onCheckout={handleCheckout}
-        />
-      )}
     </SafeAreaView>
   );
 }
