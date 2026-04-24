@@ -1,1 +1,1 @@
-export { default } from "@/components/pertemuan-5/latihan-2";
+export { default } from "@/components/pertemuan-5/latihan-3";

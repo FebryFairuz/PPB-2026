@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop Gaming",
+    "category": "Electronics",
+    "price": 15000000,
+    "stock": 5
+  },
+  {
+    "id": 2,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "price": 1500000,
+    "stock": 10
+  },
+  {
+    "id": 3,
+    "name": "Gaming Mouse",
+    "category": "Electronics",
+    "price": 500000,
+    "stock": 15
+  },
+  {
+    "id": 4,
+    "name": "Monitor 27'",
+    "category": "Electronics",
+    "price": 3000000,
+    "stock": 8
+  },
+  {
+    "id": 5,
+    "name": "Headset Gaming",
+    "category": "Electronics",
+    "price": 800000,
+    "stock": 12
+  },
+  {
+    "id": 6,
+    "name": "Webcam HD",
+    "category": "Electronics",
+    "price": 600000,
+    "stock": 0
+  },
+  {
+    "id": 7,
+    "name": "USB Hub",
+    "category": "Accessories",
+    "price": 200000,
+    "stock": 20
+  },
+  {
+    "id": 8,
+    "name": "Mouse Pad",
+    "category": "Accessories",
+    "price": 100000,
+    "stock": 25
+  }
+]
