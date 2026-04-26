@@ -8,23 +8,7 @@ import { styles } from "./style-app";
 
 export default function Latihan3() {
   const [products, setProducts] = useState(productsData);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const addToCart = (product) => {
-    alert(`Add product to cart: ${product.name} (${product.price})`);
-  };
-
-  const removeFromCart = (productId) => {
-    alert(`Remove product from cart: ${product.name} (${product.price})`);
-  };
-
-  const handleCheckout = () => {
-    alert(`Checkout successful!`);
-  };
-
-  const getCartQuantity = (productId) => {
-    return 0;
-  };
+  const [search, setSearch] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,18 +18,12 @@ export default function Latihan3() {
       >
         <Text style={styles.mainTitle}>Product Catalog</Text>
 
-        <SearchBar value={searchQuery} setValue={setSearchQuery} />
+        <SearchBar value={search} setValue={setSearch} />
 
         <View style={styles.productsSection}>
           <Text style={styles.sectionTitle}>Products ({products.length})</Text>
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onAddToCart={addToCart}
-              onRemoveFromCart={removeFromCart}
-              cartQuantity={getCartQuantity(product.id)}
-            />
+          {products.map((product, index) => (
+            <ProductCard key={index} value={product} />
           ))}
         </View>
       </ScrollView>
