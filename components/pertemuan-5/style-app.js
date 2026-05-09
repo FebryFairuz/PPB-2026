@@ -334,5 +334,36 @@ const styles = StyleSheet.create({
   cartIconStar: {
     fontSize: 22,
   },
+  productStockOut: {
+    color: "#e74c3c",
+    fontWeight: "bold",
+  },
+  quantityControl: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  quantityButton: {
+    backgroundColor: "#2D8A3E",
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  quantityButtonDisabled: {
+    backgroundColor: "#e0e0e0",
+  },
+  quantityText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#2c3e50",
+    minWidth: 30,
+    textAlign: "center",
+  },
+  addButtonDisabled: {
+    backgroundColor: "#e0e0e0",
+    opacity: 0.6,
+  },
 });
 export { styles };

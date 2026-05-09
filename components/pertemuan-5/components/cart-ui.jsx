@@ -32,21 +32,69 @@ const CartSummary = ({ totalItems, totalPrice, onCheckout }) => {
   );
 };
 
-const ProductCard = ({ value }) => {
-  // console.log(product);
+const ProductCard = ({
+  product,
+  onAddToCart,
+  onRemoveFromCart,
+  cartQuantity,
+}) => {
+  const isOutOfStock = product?.stock === 0;
+  const isMaxQuantity = cartQuantity >= product?.stock;
+
   return (
     <View style={styles.productCard}>
       <View style={styles.productInfo}>
-        <Text style={styles.productName}>{value.name}</Text>
-        <Text style={styles.productCategory}>{value.category}</Text>
-        <Text style={styles.productPrice}>{value.price}</Text>
-        <Text style={styles.productStock}>{value.stock}</Text>
+        <Text style={styles.productName}>{product?.name}</Text>
+        <Text style={styles.productCategory}>{product?.category}</Text>
+        <Text style={styles.productPrice}>
+          Rp {product?.price?.toLocaleString()}
+        </Text>
+        <Text
+          style={[styles.productStock, isOutOfStock && styles.productStockOut]}
+        >
+          Stock: {product?.stock}
+          {isOutOfStock && " (Out of Stock)"}
+        </Text>
       </View>
 
       <View style={styles.productActions}>
-        <TouchableOpacity style={styles.addButton}>
-          <Text style={styles.addButtonText}>Add to Cart</Text>
-        </TouchableOpacity>
+        {cartQuantity > 0 ? (
+          <View style={styles.quantityControl}>
+            <TouchableOpacity
+              style={styles.quantityButton}
+              onPress={() => onRemoveFromCart(product?.id)}
+            >
+              <Ionicons name="remove" size={20} color="#fff" />
+            </TouchableOpacity>
+
+            <Text style={styles.quantityText}>{cartQuantity}</Text>
+
+            <TouchableOpacity
+              style={[
+                styles.quantityButton,
+                isMaxQuantity && styles.quantityButtonDisabled,
+              ]}
+              onPress={() => onAddToCart(product)}
+              disabled={isMaxQuantity}
+            >
+              <Ionicons
+                name="add"
+                size={20}
+                color={isMaxQuantity ? "#ccc" : "#fff"}
+              />
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <TouchableOpacity
+            style={[styles.addButton, isOutOfStock && styles.addButtonDisabled]}
+            onPress={() => onAddToCart(product)}
+            disabled={isOutOfStock}
+          >
+            <Text style={styles.addButtonText}>
+              {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
