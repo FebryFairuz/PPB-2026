@@ -102,7 +102,7 @@ export default function Welcome() {
       description: "Build Complete Mobile App",
       icon: "rocket-outline",
       color: "#6d16f9",
-      path: "/module-8",
+      path: "/module-9",
     },
   ];
 
