@@ -67,7 +67,7 @@ export default function Signin() {
             {
               text: "OK",
               onPress: () => {
-                router.replace("/module-8");
+                router.replace("/module-9/apps");
               },
             },
           ]);
