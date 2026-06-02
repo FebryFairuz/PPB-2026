@@ -58,4 +58,19 @@ const DELETE_BOOK = async (book_id) => {
   return RequestAPI("DELETE", `${API_URL}/api/books/${book_id}`, HEADERS);
 };
 
-export { CREATE_BOOK, DELETE_BOOK, GET_ALL_BOOK, GET_BOOK_BY_ID, UPDATE_BOOK };
+const GET_EXPLORER_BOOK = async () => {
+  const TOKEN = await getToken();
+  const HEADERS = {
+    Authorization: `Bearer ${TOKEN}`,
+    "Content-Type": "application/json",
+  };
+  return RequestAPI("GET", `${API_URL}/api/books/explorers`, HEADERS);
+};
+
+export {
+  CREATE_BOOK,
+  DELETE_BOOK,
+  GET_ALL_BOOK,
+  GET_BOOK_BY_ID, GET_EXPLORER_BOOK, UPDATE_BOOK
+};
+

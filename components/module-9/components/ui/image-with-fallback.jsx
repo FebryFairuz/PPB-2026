@@ -39,10 +39,7 @@ const ImageWithFallback = ({
     <View style={style}>
       <Image
         source={{ uri: imageUrl }}
-        style={[
-          StyleSheet.absoluteFill,
-          { borderRadius: style?.borderRadius || 0 },
-        ]}
+        style={[StyleSheet.absoluteFill, { borderRadius: 10 }]}
         resizeMode={resizeMode}
         onError={() => {
           console.log("Image load error:", imageUrl);

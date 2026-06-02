@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { usePathname, useRouter } from "expo-router";
+import { useEffect } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "../../contexts/auth-context";
@@ -25,11 +26,18 @@ const book = {
 
 export default function Home() {
   const { user } = useAuth();
-  // const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    if (!user) {
+      router.replace("/module-9/sign-in");
+    }
+  }, [user]);
+
   if (!user) {
-    router.push("/module-9/sign-in");
+    return null; // or a loading indicator
   }
+
   return (
     <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <Greeting />

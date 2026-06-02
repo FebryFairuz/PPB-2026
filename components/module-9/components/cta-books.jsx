@@ -215,3 +215,4 @@ const CTAInfoBook = ({ book }) => {
 };
 
 export default CTABook;
+export { HeroBook };
