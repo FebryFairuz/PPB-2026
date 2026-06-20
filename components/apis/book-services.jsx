@@ -1,5 +1,5 @@
 import * as SecureStore from "expo-secure-store";
-import { RequestAPI } from "../hooks/RequestAPI";
+import { RequestAPI } from "../hooks/request-api";
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URI;
 
@@ -71,6 +71,8 @@ export {
   CREATE_BOOK,
   DELETE_BOOK,
   GET_ALL_BOOK,
-  GET_BOOK_BY_ID, GET_EXPLORER_BOOK, UPDATE_BOOK
+  GET_BOOK_BY_ID,
+  GET_EXPLORER_BOOK,
+  UPDATE_BOOK
 };
 

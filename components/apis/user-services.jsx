@@ -1,5 +1,5 @@
 import * as SecureStore from "expo-secure-store";
-import { RequestAPI } from "../hooks/RequestAPI";
+import { RequestAPI } from "../hooks/request-api";
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URI || "http://localhost:3000";
 
@@ -102,11 +102,11 @@ const DELETE_USER = async (user_id) => {
 };
 
 export {
-    CREATE_USER,
-    DELETE_USER,
-    GET_ALL_USER,
-    GET_USER_BY_ID,
-    LOG_IN,
-    UPDATE_USER
+  CREATE_USER,
+  DELETE_USER,
+  GET_ALL_USER,
+  GET_USER_BY_ID,
+  LOG_IN,
+  UPDATE_USER
 };
 

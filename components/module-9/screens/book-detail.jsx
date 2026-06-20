@@ -1,5 +1,4 @@
 import { AntDesign, Feather, FontAwesome, Ionicons } from "@expo/vector-icons";
-import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLocalSearchParams, usePathname, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
@@ -79,14 +78,10 @@ export default function BookDetail() {
       source={imageUrl ? { uri: imageUrl } : null}
       style={styles_detail.background}
     >
-      {Platform.OS === "ios" ? (
-        <BlurView intensity={80} tint="dark" style={styles_detail.overlay} />
-      ) : (
-        <LinearGradient
-          colors={["rgba(0,0,0,0.6)", "rgba(0,0,0,0.8)", "rgba(0,0,0,0.9)"]}
-          style={styles_detail.overlay}
-        />
-      )}
+      <LinearGradient
+        colors={["rgba(0, 0, 0, 0.1)", "rgba(0,0,0,0.1)", "rgba(0, 0, 0, 0.1)"]}
+        style={styles_detail.overlay}
+      />
       <SafeAreaView style={styles_detail.container}>
         <Header book={book.data} />
         <ScrollView
@@ -208,6 +203,7 @@ const styles_detail = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.7)", // Dark overlay untuk Android
   },
   overlayAndroid: {
     ...StyleSheet.absoluteFillObject,

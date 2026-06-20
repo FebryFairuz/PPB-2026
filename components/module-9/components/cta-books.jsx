@@ -1,7 +1,7 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { Dimensions, FlatList, Text, View } from "react-native";
+import { Dimensions, FlatList, RefreshControl, Text, View } from "react-native";
 import { GET_ALL_BOOK } from "../../apis/book-services";
 import { styles } from "../styles/style-app";
 import { BookListSkeleton } from "./ui/book-skeleton";
@@ -126,6 +126,9 @@ const CTABook = ({ book }) => {
         style={{
           maxHeight: "80%",
         }}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
       />
       <RenderPagination />
     </View>
